@@ -14,22 +14,11 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4.1.6
 
-      - name: Get latest release
-        id: get_release
-        uses: actions/github-script@v7.0.1
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          script: |
-            const response = await github.repos.listReleases({
-              owner: 'tripleseven190504',
-              repo: 'PYCDC BINARY',
-            });
-            const latestRelease = response.data[0];
-            return latestRelease;
-
       - name: Update README
         run: |
-          echo "\n ![][(https://readme-typing-svg.herokuapp.com?font=Rubik+Doodle+Shadow&amp;pause=1000&amp;color=6272A4&amp;center=true&amp;random=false&amp;width=435&amp;lines=Download)](https://github.com/tripleseven190504/PYCDC/releases/tag/${{ steps.get_release.outputs.result }})" >> README.md
+          echo "# PYCDC-BINARY" >> README.md
+          echo "\n ![][(https://readme-typing-svg.herokuapp.com?font=Rubik+Doodle+Shadow&amp;pause=1000&amp;color=6272A4&amp;center=true&amp;random=false&amp;width=435&amp;lines=Download+PYCDC)](https://github.com/tripleseven190504/PYCDC-BINARY/releases/download/stable-release/pycdc.exe)" >> README.md
+          echo "\n ![][(https://readme-typing-svg.herokuapp.com?font=Rubik+Doodle+Shadow&amp;pause=1000&amp;color=6272A4&amp;center=true&amp;random=false&amp;width=435&amp;lines=Download+PYCDAS)](https://github.com/tripleseven190504/PYCDC-BINARY/releases/download/stable-release/pycdas.exe)" >> README.md
       - name: Commit changes
         run: |
           git config --global user.name 'GitHub Actions'

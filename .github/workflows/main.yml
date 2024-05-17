@@ -37,17 +37,12 @@ jobs:
 
           make
 
-      - name: Set release date & time
-        run: |
-          echo "RELEASE_DATE=$(date -u +%d-%b-%Y)" >> ${GITHUB_ENV}
-          echo "RELEASE_TIME=$(date -u +%H:%M)" >> ${GITHUB_ENV}
-
       - name: Create release Windows
         uses: ncipollo/release-action@v1
         with:
-          name: Decompyle++ ${{ env.RELEASE_DATE }}
+          name: Decompyle++
           tag: stable-release
-          body: Compiled on ${{ env.RELEASE_DATE }} at ${{ env.RELEASE_TIME }} GMT, pycdc commit ${{ env.RELEASE_COMMIT }}
+          body: Decompyle++ binary for Windows
           artifacts: "pycdc/pycdc.exe,pycdc/pycdas.exe"
           token: ${{ secrets.TOKEN }}
           allowUpdates: true
