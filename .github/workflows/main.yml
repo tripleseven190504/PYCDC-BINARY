@@ -46,7 +46,7 @@ jobs:
         uses: ncipollo/release-action@v1
         with:
           name: Decompyle++ ${{ env.RELEASE_DATE }}
-          tag: build
+          tag: stable-release
           body: Compiled on ${{ env.RELEASE_DATE }} at ${{ env.RELEASE_TIME }} GMT, pycdc commit ${{ env.RELEASE_COMMIT }}
           artifacts: "pycdc/pycdc.exe,pycdc/pycdas.exe"
           token: ${{ secrets.TOKEN }}
