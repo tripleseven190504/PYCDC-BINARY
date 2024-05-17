@@ -16,9 +16,10 @@ jobs:
 
       - name: Update README
         run: |
-          echo "# PYCDC-BINARY" >> README.md
-          echo "\n ![][(https://readme-typing-svg.herokuapp.com?font=Rubik+Doodle+Shadow&amp;pause=1000&amp;color=6272A4&amp;center=true&amp;random=false&amp;width=435&amp;lines=Download+PYCDC)](https://github.com/tripleseven190504/PYCDC-BINARY/releases/download/stable-release/pycdc.exe)" >> README.md
-          echo "\n ![][(https://readme-typing-svg.herokuapp.com?font=Rubik+Doodle+Shadow&amp;pause=1000&amp;color=6272A4&amp;center=true&amp;random=false&amp;width=435&amp;lines=Download+PYCDAS)](https://github.com/tripleseven190504/PYCDC-BINARY/releases/download/stable-release/pycdas.exe)" >> README.md
+          echo "# PYCDC-BINARY\n" > README.md
+          echo "[![Download PYCDC](https://readme-typing-svg.herokuapp.com?font=Rubik+Doodle+Shadow&pause=1000&color=6272A4&center=true&random=false&width=435&lines=Download+PYCDC)](https://github.com/tripleseven190504/PYCDC-BINARY/releases/download/stable-release/pycdc.exe)\n" >> README.md
+          echo "[![Download PYCDAS](https://readme-typing-svg.herokuapp.com?font=Rubik+Doodle+Shadow&pause=1000&color=6272A4&center=true&random=false&width=435&lines=Download+PYCDAS)](https://github.com/tripleseven190504/PYCDC-BINARY/releases/download/stable-release/pycdas.exe)\n" >> README.md
+
       - name: Commit changes
         run: |
           git config --global user.name 'GitHub Actions'
