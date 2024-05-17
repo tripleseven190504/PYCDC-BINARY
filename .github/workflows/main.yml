@@ -1,4 +1,4 @@
-name: Compile pycdc for Windows
+name: Build and Release Decompyle++
 on:
   push:
     branches:
@@ -8,22 +8,25 @@ on:
 
 jobs:
   build-job:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-latest
 
     steps:
-      - name: Install mingw-w64
+      - name: Update system and install Mingw-w64
         run: |
           sudo apt update
           sudo apt install -y mingw-w64
 
-      - name: Clone pycdc
+      - name: Download PyInstaller Extractor
+        run: |
+          wget https://raw.githubusercontent.com/extremecoders-re/pyinstxtractor/master/pyinstxtractor.py
+          chmod +x pyinstxtractor.py
+
+      - name: Clone Decompyle++ repository
         run: git clone --depth=1 https://github.com/zrax/pycdc
 
-      - name: Compile
+      - name: Configure and build Decompyle++ with CMake
         run: >
           cd pycdc
-
-          echo "RELEASE_COMMIT=$(git log -1 --format=%h)" >> ${GITHUB_ENV}
 
           cmake -DCMAKE_SYSTEM_NAME=Windows
           -DCMAKE_C_COMPILER=i686-w64-mingw32-gcc
@@ -37,13 +40,13 @@ jobs:
 
           make
 
-      - name: Create release Windows
+      - name: Release Decompyle++
         uses: ncipollo/release-action@v1
         with:
           name: Decompyle++
           tag: stable-release
-          body: Decompyle++ binary for Windows
-          artifacts: "pycdc/pycdc.exe,pycdc/pycdas.exe"
+          body: This release contains pre-built binaries for Windows from the original repository.
+          artifacts: "pycdc/pycdc.exe,pycdc/pycdas.exe, pyinstxtractor.py"
           token: ${{ secrets.TOKEN }}
           allowUpdates: true
-          draft: true
+          makeLatest: true
