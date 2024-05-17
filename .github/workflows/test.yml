@@ -15,12 +15,12 @@ jobs:
           chmod +x .github/scripts/get-commit-count.sh
           STATUS=$(.github/scripts/get-commit-count.sh)
           echo $STATUS
-          cat .github/scripts/commit-count
+          cat commit-count
           if [ "$STATUS" != "True" ]; then
             git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
             git config --global user.name "github-actions[bot]"
             git add .
-            NUMBER=$(cat .github/scripts/commit-count)
+            NUMBER=$(cat commit-count)
             git commit -m "Update current commit count $NUMBER"
             git push --force
             exit 1
