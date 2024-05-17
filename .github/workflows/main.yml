@@ -27,6 +27,7 @@ jobs:
             NUMBER=$(cat commit-count)
             git commit -m "Update current commit count #$NUMBER"
             git push --force
+          else
             exit 0
           fi
 
