@@ -32,7 +32,7 @@
         <a width="50%" align="center"
             href="https://github.com/tripleseven190504/PYCDC-BINARY/releases/download/stable-release/pycdas.exe">
             <img width="50%" align="center"
-                src="https://readme-typing-svg.herokuapp.com?font=JetBrains+Mono&weight=600&size=25&duration=2000&pause=2000&vCenter=true&random=true&width=210&lines=Download+PYCDAS">
+                src="https://readme-typing-svg.herokuapp.com?font=JetBrains+Mono&weight=600&size=25&duration=2000&pause=2000&vCenter=true&random=true&width=225&lines=Download+PYCDAS">
         </a>
     </p>
 </center>
